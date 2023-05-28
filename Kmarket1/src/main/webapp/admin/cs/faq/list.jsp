@@ -57,15 +57,6 @@
              </p>
          </nav>
          <article class="list">
-             <select name="cate1">
-              <option value="0">1차선택</option>
-              <c:forEach var="cate" items="${faqct}">
-              	<option value="${cate.cate}">${cate.cate}</option>
-              </c:forEach>
-         	</select>
-         	<select name="cate2">
-              <option value="0">2차선택</option>
-         	</select>
                  <table>
                       <tr>
                        <th><input type="checkbox"  id="AllCheck"/></th>

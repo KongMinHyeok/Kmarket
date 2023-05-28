@@ -9,6 +9,7 @@
                     </p>
                 </nav>
 				<form action="/Kmarket1/admin/cs/qna/reply.do" method="post">
+				<input type="hidden" name="pg" value="${pg}"/>
                 <input type="hidden" name="no" value="${qna.no}"/>
                 <article class="list">
 	               <table>

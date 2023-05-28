@@ -27,6 +27,7 @@ public class WriteController extends HttpServlet{
 		String cate = req.getParameter("cate");
 		CsArticleVO qna = service.selectCateQna();
 		
+		
 		req.setAttribute("cate", cate);
 		req.setAttribute("qna", qna);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/qna/write.jsp");

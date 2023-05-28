@@ -1,25 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="/admin/_header.jsp"/>
-<script>
-$(function(){
-	
-	//제목 유효성검사
-	$("input[name=submit]").click(function(){
-		if($("input[name=title]").val() == ""){
-		    alert("제목을 입력해주세요.");
-		    $("input[name=title]").focus();
-		    return false;
-		};
-		
-		if($("input[name=title]").val() == ""){
-		    alert("제목을 입력해주세요.");
-		    $("input[name=title]").focus();
-		    return false;
-		};
-});
-	
-
-</script>
             <section id="admin-notice-view">
                 <nav>
                     <h3>공지사항 수정</h3>

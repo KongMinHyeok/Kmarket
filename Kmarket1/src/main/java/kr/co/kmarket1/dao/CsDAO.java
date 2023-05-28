@@ -662,13 +662,15 @@ public List<CsArticleVO> selectQnasGroup(int start) {
 			conn = getConnection();
 			psmt = conn.prepareStatement(CsSQL.INSERT_ARTICLE_FAQ);
 			psmt.setString(1, article.getUid());
-			psmt.setString(2, article.getCate());
+			psmt.setString(2, article.getCate());		
 			psmt.setString(3, article.getCate2());
 			psmt.setString(4, article.getTitle());
 			psmt.setString(5, article.getContent());
 			psmt.setString(6, article.getRegip());
 			psmt.executeUpdate();
 			close();
+			
+
 			
 		}catch (Exception e) {
 			logger.error(e.getMessage());

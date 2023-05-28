@@ -74,4 +74,36 @@ $(function(){
 			cate2.append('<option value="청소년위해상품/이미지">청소년위해상품/이미지</option>');
 		}
 	});
+	
+	//유효성검사
+	$('input[name=submit]').click(function(){
+		var title = $('input[name=title]').val();
+		var content = $('textarea[name=content]').val();
+		var comment = $('textarea[name=comment]').val();		
+		var cate = $('select[name=cate]').val();
+		var cate2 = $('select[name=cate2]').val();
+		
+		if(title == '') {
+			alert("제목을 입력해주세요");
+			return false;
+		}
+		if(content == '') {
+			alert("내용을 입력해주세요");
+			return false;
+		}
+		if(comment == '') {
+			alert("답변 내용을 입력해주세요");
+			return false;
+		}
+		if(cate == 0) {
+			alert("유형을 선택해주세요");
+			return false;
+		}
+		if(cate2 == ''){
+			alert("2차유형을 선택해주세요");
+			return false;
+		}
+		
+	});
+
 });

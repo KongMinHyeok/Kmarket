@@ -47,22 +47,26 @@
 		}
 	}
 	function update(selectElement) {
-		  var selectBox = document.getElementsByName("cate")[0];
-		  var selectedValue = selectBox.value;
+		  var selectedValue = selectElement.value;
 		  var noticelist = document.getElementById("admin-notice-list");
 
 		  if (selectedValue !== "0") {
-		    // 선택한 값을 사용하여 페이지 파라미터 값을 만듭니다.
-		    var parameter = "?cate=" + selectedValue;
-
-		    location.href="/Kmarket1/admin/cs/notice/list.do"+parameter;
-
-		    // 페이지 로드 완료 후, 추가 동작을 수행할 수 있습니다.
-		  }else {
-			  location.href="/Kmarket1/admin/cs/notice/list.do";
+		    var cate = "?cate=" + selectedValue; // 선택한 값을 사용하여 파라미터 값 만듬
+		    location.href = "/Kmarket1/admin/cs/notice/list.do" + cate; // 페이지 로드 	
+		  } else {
+		    location.href = "/Kmarket1/admin/cs/notice/list.do";
 		  }
-		  
 		}
+
+		window.onload = function() {
+		  var selectBox = document.getElementsByName("cate")[0];
+		  var selectedValue = selectBox.value;
+		  selectBox.value = localStorage.getItem("selectedOption"); // 값을 저장하고
+		  selectBox.onchange = function() {
+		    update(this);
+		    localStorage.setItem("selectedOption", this.value); // 업데이트시에 저장된 값을 불러옴
+		  };
+		};
 </script>
      <section id="admin-notice-list">
          <nav>
@@ -73,11 +77,11 @@
          </nav>
          <article class="list">
              <select name="cate" onchange="update(this)">
-              <option value="0" selected=>유형선택</option>
-              <option value="service"  selected="${cate}==service" >고객 서비스</option>
-              <option value="safe" selected="${cate}==safe">안전거래</option>
-              <option value="product" selected="${cate}==product" >위해상품</option>
-              <option value="event" selected="${cate}==event" >이벤트 당첨</option>
+              <option value="0">유형선택</option>
+              <option value="service"  selected="${cate eq 'service'}">고객 서비스</option>
+              <option value="safe" selected="${cate eq 'safe'}">안전거래</option>
+              <option value="product" selected="${cate eq 'product'}" >위해상품</option>
+              <option value="event" selected="${cate eq 'event'}" >이벤트 당첨</option>
          	</select>
                  <table>
                       <tr>

@@ -47,9 +47,11 @@ public class replyController extends HttpServlet{
 		
 		String comment = req.getParameter("comment");
 		String no = req.getParameter("no");
+		String pg = req.getParameter("pg");
+		
 		
 		service.insertCommentQna(comment, no);
-		resp.sendRedirect("/Kmarket1/admin/cs/qna/view.do?no=" + no);
+		resp.sendRedirect("/Kmarket1/admin/cs/qna/view.do?no=" + no + "&pg=" + pg);
 	}
 	
 }

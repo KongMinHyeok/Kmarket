@@ -46,6 +46,9 @@
 					<c:when test="${fn:length(qna.uid) gt 5}">
 						<td>${fn:substring (qna.uid,0,fn:length(qna.uid)-3)}***</td>
                    </c:when>
+                   	<c:when test="${(qna.uid) eq ''}">
+						<td><a>비회원</a></td>
+                   </c:when>
 	                <c:otherwise>
 	                   	<td>${fn:substring (qna.uid,0,fn:length(qna.uid)-2)}**</td>
 	                </c:otherwise>
